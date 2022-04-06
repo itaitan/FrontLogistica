@@ -1,6 +1,11 @@
 <div class="container mat-elevation-z8">
   <form action="" class="form">.
-    <h1 class="fullWidth">Cadastrar Cleinte</h1>
+    <h1 class="fullWidth">Cadastrar Cliente</h1>
+
+    <mat-radio-group class="section" aria-label="Select an option">
+      <mat-radio-button color="primary" value="M">Masculino</mat-radio-button>
+      <mat-radio-button color="primary" value="F">Feminino</mat-radio-button>
+    </mat-radio-group>
 
     <mat-form-field class="fullWidth" appearance="legacy">
       <mat-label>Nome</mat-label>
@@ -15,27 +20,17 @@
     </mat-form-field>
 
     <mat-form-field  class="fullWidth"appearance="legacy">
-      <mat-label>CPF</mat-label>
+      <mat-label>Data de nascimento</mat-label>
       <input
       name="cpf"
       required
 
-      matInput placeholder="Ex... 000.000.000-00"
+      matInput placeholder="Ex... 01/01/2022"
       mask="000.000.000-00">
       <mat-icon matSuffix>pin</mat-icon>
 
     </mat-form-field>
 
-    <mat-form-field class="fullWidth" appearance="legacy">
-      <mat-label>Email</mat-label>
-      <input
-      name="email"
-      required
-
-      matInput placeholder="Ex... mail@email.com">
-      <mat-icon matSuffix>email</mat-icon>
-
-    </mat-form-field>
 
 
 
