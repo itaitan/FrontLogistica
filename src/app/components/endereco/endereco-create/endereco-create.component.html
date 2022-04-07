@@ -1,0 +1,91 @@
+
+  <form action="" class="form">
+
+    <div class="fullWidth">
+    <mat-form-field class="tamanho" appearance="legacy">
+
+      <mat-label>CEP</mat-label>
+      <input
+      name="cep"
+      [formControl]="cep"
+      required
+      mask="00000-000"
+      matInput placeholder="Ex... 00000-000"
+      >
+      <mat-icon matSuffix>person</mat-icon>
+
+    </mat-form-field>
+    <button mat-flat-button (click)="buscaAPI()" color="primary">Buscar</button>
+  </div>
+    <mat-form-field  class="fullWidth"appearance="legacy">
+      <mat-label>Rua</mat-label>
+      <input
+      name="logradouro"
+      [(ngModel)]="logradouroModel"
+      [formControl]="logradouro"
+      required
+      matInput placeholder="Ex... Rua Maria Antonio"
+      >
+      <mat-icon matSuffix>home</mat-icon>
+
+    </mat-form-field>
+
+    <mat-form-field  class="fullWidth"appearance="legacy">
+      <mat-label>Bairro</mat-label>
+      <input
+      name="bairro"
+      [(ngModel)]="bairroModel"
+      [formControl]="bairro"
+      matInput placeholder="Ex... Vila Antonio"
+      >
+      <mat-icon matSuffix>home</mat-icon>
+
+
+    </mat-form-field>
+
+    <div class="fullWidth">
+    <mat-form-field  class="comprimentoNumero"appearance="legacy">
+      <mat-label>Numero</mat-label>
+      <input
+      name="numero"
+
+      [formControl]="numero"
+      required
+      matInput placeholder="Ex... Vila Antonio"
+      >
+      <mat-icon matSuffix>home</mat-icon>
+
+
+    </mat-form-field>
+
+    <mat-form-field  class="comprimentoComplemento"appearance="legacy">
+      <mat-label>Complemento</mat-label>
+      <input
+      name="complemento"
+
+      [formControl]="complemento"
+      matInput placeholder="Ex... Apartamento"
+      >
+      <mat-icon matSuffix>home</mat-icon>
+
+
+    </mat-form-field>
+
+    <mat-form-field  class="comprimentoUF"appearance="legacy">
+      <mat-label>UF</mat-label>
+      <input
+      name="uf"
+      [(ngModel)]="ufModel"
+      [formControl]="uf"
+      matInput placeholder="Ex... SP"
+
+      >
+      <mat-icon matSuffix>home</mat-icon>
+
+
+    </mat-form-field>
+  </div>
+
+  </form>
+
+

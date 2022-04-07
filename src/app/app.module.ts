@@ -33,6 +33,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { ClienteCreateComponent } from './components/cliente/cliente-create/cliente-create.component';
 import { ClienteListComponent } from './components/cliente/cliente-list/cliente-list.component';
 import { ClienteUpdateComponent } from './components/cliente/cliente-update/cliente-update.component';
+import { EnderecoCreateComponent } from './components/endereco/endereco-create/endereco-create.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { ClienteUpdateComponent } from './components/cliente/cliente-update/clie
     HeaderComponent,
     ClienteCreateComponent,
     ClienteListComponent,
-    ClienteUpdateComponent
+    ClienteUpdateComponent,
+    EnderecoCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -71,6 +74,7 @@ import { ClienteUpdateComponent } from './components/cliente/cliente-update/clie
     MatIconModule,
     MatListModule,
     MatCardModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
