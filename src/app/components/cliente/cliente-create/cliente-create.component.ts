@@ -61,6 +61,8 @@ export class ClienteCreateComponent implements OnInit {
     );
   }
 
+
+
   validaCampos(): boolean {
     let sexoPrenchido;
     if (this.seletorSexoModel === undefined) {
