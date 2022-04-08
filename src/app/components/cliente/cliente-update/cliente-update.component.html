@@ -1,5 +1,6 @@
 <div class="container mat-elevation-z8">
-  <form action="" class="form">.
+  <form action="" class="form">
+    .
     <h1 class="fullWidth">Modificar Cliente</h1>
 
     <mat-radio-group class="section" aria-label="Select an option">
@@ -10,33 +11,37 @@
     <mat-form-field class="fullWidth" appearance="legacy">
       <mat-label>Nome</mat-label>
       <input
-      name="nome"
-      required
-
-      matInput placeholder="Ex... João"
-      maxlength="50">
+        name="nome"
+        required
+        matInput
+        placeholder="Ex... João"
+        maxlength="50"
+      />
       <mat-icon matSuffix>person</mat-icon>
-
     </mat-form-field>
 
-    <mat-form-field  class="fullWidth"appearance="legacy">
+    <mat-form-field class="fullWidth" appearance="legacy">
       <mat-label>Data de nascimento</mat-label>
       <input
-      name="cpf"
-      required
-
-      matInput placeholder="Ex... 01/01/2022"
-      mask="000.000.000-00">
+        name="cpf"
+        required
+        matInput
+        placeholder="Ex... 01/01/2022"
+        mask="000.000.000-00"
+      />
       <mat-icon matSuffix>pin</mat-icon>
-
     </mat-form-field>
 
-
-
-
-
-    <button class="fullWidth mat-elevation-z8" mat-flat-button color="primary">Cadastrar</button>
-    <button routerLink="../" class="fullWidth mat-elevation-z8" mat-stroked-button color="warn">Cancelar</button>
+    <button class="fullWidth mat-elevation-z8" mat-flat-button color="primary">
+      Cadastrar
+    </button>
+    <button
+      routerLink="../"
+      class="fullWidth mat-elevation-z8"
+      mat-stroked-button
+      color="warn"
+    >
+      Cancelar
+    </button>
   </form>
-
 </div>

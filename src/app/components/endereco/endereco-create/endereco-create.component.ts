@@ -4,42 +4,39 @@ import { FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-endereco-create',
   templateUrl: './endereco-create.component.html',
-  styleUrls: ['./endereco-create.component.scss']
+  styleUrls: ['./endereco-create.component.scss'],
 })
 export class EnderecoCreateComponent implements OnInit {
-
   //NgModel
   logradouroModel: any;
   bairroModel: any;
   ufModel: any;
 
   //FormsControl
-  cep: FormControl = new FormControl(null, Validators.maxLength(8))
-  logradouro: FormControl = new FormControl(null)
-  bairro: FormControl = new FormControl(null)
-  numero: FormControl = new FormControl(null)
-  complemento: FormControl = new FormControl(null)
-  uf: FormControl = new FormControl(null)
+  cep: FormControl = new FormControl(null, Validators.maxLength(8));
+  logradouro: FormControl = new FormControl();
+  bairro: FormControl = new FormControl();
+  numero: FormControl = new FormControl();
+  complemento: FormControl = new FormControl();
+  uf: FormControl = new FormControl();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  buscaAPI(){
-    const endpoint = "https://viacep.com.br/ws/" + this.cep.value + "/json/"
+  gravar() {}
+
+  buscaAPI() {
+    const endpoint = 'https://viacep.com.br/ws/' + this.cep.value + '/json/';
 
     fetch(endpoint)
-    .then(response => response.json())
-    .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         console.log(data);
-        this.logradouroModel = data.logradouro
-        this.ufModel = data.uf
-        this.bairroModel = data.bairro
-    })
-    .catch(() => console.log("Error!"));
-
+        this.logradouroModel = data.logradouro;
+        this.ufModel = data.uf;
+        this.bairroModel = data.bairro;
+      })
+      .catch(() => console.log('Error!'));
   }
-
-
 }

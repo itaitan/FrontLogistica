@@ -1,26 +1,27 @@
+import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-
 
 @Component({
   selector: 'app-cliente-create',
   templateUrl: './cliente-create.component.html',
-  styleUrls: ['./cliente-create.component.scss']
+  styleUrls: ['./cliente-create.component.scss'],
 })
 export class ClienteCreateComponent implements OnInit {
-
+  seletorSexo = '';
   nome: any;
   dataNascimento: any;
   cep: any;
+  sexoM: any;
 
-  constructor( ) { }
+  sexoF: FormControl = new FormControl(null);
 
-  ngOnInit(): void {
+  constructor() {}
 
-  }
+  ngOnInit(): void {}
 
-  gravar(){
+  gravar() {
     console.log(this.nome);
-    console.log(this.cep)
+    console.log(this.cep);
+    console.log(this.seletorSexo);
   }
-
 }

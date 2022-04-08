@@ -1,40 +1,65 @@
 <div class="container mat-elevation-z8">
-  <form action="" class="form">.
+  <form action="" class="form">
+    .
     <h1 class="fullWidth">Cadastrar Cliente</h1>
 
-    <mat-radio-group class="section" aria-label="Select an option">
-      <mat-radio-button color="primary" value="M">Masculino</mat-radio-button>
-      <mat-radio-button color="primary" value="F">Feminino</mat-radio-button>
+    <mat-radio-group
+      class="section"
+      name="seletorSexo"
+      aria-label="Select an option"
+      [(ngModel)]="seletorSexo"
+    >
+      <mat-radio-button color="primary" value="Masculino"
+        >Masculino</mat-radio-button
+      >
+      <mat-radio-button color="primary" value="Feminino"
+        >Feminino</mat-radio-button
+      >
     </mat-radio-group>
 
     <mat-form-field class="fullWidth" appearance="legacy">
       <mat-label>Nome</mat-label>
       <input
-      name="nome"
-      required
-      [(ngModel)]="nome"
-      matInput placeholder="Ex... João"
-      maxlength="50">
+        name="nome"
+        required
+        [(ngModel)]="nome"
+        matInput
+        placeholder="Ex... João"
+        maxlength="50"
+      />
       <mat-icon matSuffix>person</mat-icon>
-
     </mat-form-field>
 
-    <mat-form-field  class="fullWidth"appearance="legacy">
+    <mat-form-field class="fullWidth" appearance="legacy">
       <mat-label>Data de nascimento</mat-label>
       <input
-      name="dataNascimento"
-      required
-      [(ngModel)]="dataNascimento"
-      matInput placeholder="Ex... 01/01/2022"
-      mask="00/00/0000">
+        name="dataNascimento"
+        required
+        [(ngModel)]="dataNascimento"
+        matInput
+        placeholder="Ex... 01/01/2022"
+        mask="00/00/0000"
+      />
       <mat-icon matSuffix>date_range</mat-icon>
-
     </mat-form-field>
 
     <app-endereco-create></app-endereco-create>
 
-    <button (click)="gravar()" class="fullWidth mat-elevation-z8" mat-flat-button color="primary">Cadastrar</button>
-    <button routerLink="../" class="fullWidth mat-elevation-z8" mat-stroked-button color="warn">Cancelar</button>
+    <button
+      (click)="gravar()"
+      class="fullWidth mat-elevation-z8"
+      mat-flat-button
+      color="primary"
+    >
+      Cadastrar
+    </button>
+    <button
+      routerLink="../"
+      class="fullWidth mat-elevation-z8"
+      mat-stroked-button
+      color="warn"
+    >
+      Cancelar
+    </button>
   </form>
-
 </div>
