@@ -15,6 +15,7 @@ export class ClienteUpdateComponent implements OnInit {
     id: '',
     nome: '',
     dataNascimento: '',
+    sexo: ''
   };
 
   seletorSexoModel: any;

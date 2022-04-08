@@ -16,6 +16,7 @@ export class ClienteCreateComponent implements OnInit {
     id: '',
     nome: '',
     dataNascimento: '',
+    sexo: ''
   };
 
   seletorSexoModel: any;
