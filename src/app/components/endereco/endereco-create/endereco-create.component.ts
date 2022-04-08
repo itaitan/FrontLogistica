@@ -13,7 +13,6 @@ export class EnderecoCreateComponent implements OnInit {
   bairroModel: any;
   ufModel: any;
 
-
   //FormsControl
   cep: FormControl = new FormControl(null, Validators.maxLength(8))
   logradouro: FormControl = new FormControl(null)
@@ -23,8 +22,6 @@ export class EnderecoCreateComponent implements OnInit {
   uf: FormControl = new FormControl(null)
 
   constructor() { }
-
-
 
   ngOnInit(): void {
   }
@@ -41,6 +38,8 @@ export class EnderecoCreateComponent implements OnInit {
         this.bairroModel = data.bairro
     })
     .catch(() => console.log("Error!"));
+
   }
+
 
 }

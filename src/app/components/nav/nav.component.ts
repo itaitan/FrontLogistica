@@ -12,7 +12,7 @@ export class NavComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.router.navigate(['clientes/create'])
+    this.router.navigate(['clientes'])
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-cliente-create',
   templateUrl: './cliente-create.component.html',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClienteCreateComponent implements OnInit {
 
-  constructor() { }
+  nome: any;
+  dataNascimento: any;
+  cep: any;
+
+  constructor( ) { }
 
   ngOnInit(): void {
+
+  }
+
+  gravar(){
+    console.log(this.nome);
+    console.log(this.cep)
   }
 
 }
