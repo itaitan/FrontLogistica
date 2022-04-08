@@ -1,3 +1,4 @@
+import { EnderecoListComponent } from './components/endereco/endereco-list/endereco-list.component';
 import { EnderecoCreateComponent } from './components/endereco/endereco-create/endereco-create.component';
 import { ClienteUpdateComponent } from './components/cliente/cliente-update/cliente-update.component';
 import { NgModule, Component } from '@angular/core';
@@ -14,6 +15,7 @@ const routes: Routes = [{
     { path: 'clientes/create', component: ClienteCreateComponent },
     { path: 'clientes/update/:id', component: ClienteUpdateComponent },
     { path: 'clientes/enderecos/create/:id', component: EnderecoCreateComponent },
+    { path: 'clientes/enderecos/view/:id', component: EnderecoListComponent },
 
   ]
 },

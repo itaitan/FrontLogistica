@@ -1,1 +1,54 @@
-<p>endereco-list works!</p>
+<div class="container">
+  <h1>Listando Endereços do Cliente</h1>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>id</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="cep">
+        <th mat-header-cell *matHeaderCellDef>Cep</th>
+        <td mat-cell *matCellDef="let element">{{ element.cep }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="logradouro">
+        <th mat-header-cell *matHeaderCellDef>Logradouro</th>
+        <td mat-cell *matCellDef="let element">{{ element.logradouro }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="bairro">
+        <th mat-header-cell *matHeaderCellDef>Bairro</th>
+        <td mat-cell *matCellDef="let element">{{ element.bairro }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="complemento">
+        <th mat-header-cell *matHeaderCellDef>Bairro</th>
+        <td mat-cell *matCellDef="let element">{{ element.complemento }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="uf">
+        <th mat-header-cell *matHeaderCellDef>Uf</th>
+        <td mat-cell *matCellDef="let element">{{ element.uf }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="acoes">
+        <th mat-header-cell *matHeaderCellDef>Ações</th>
+        <td mat-cell *matCellDef="let element">
+          <a routerLink="update/{{ element.id }}">
+            <i class="material-icons edit" matTooltip="Editar Endereço do cliente">edit</i>
+          </a>
+          <a routerLink="delete">
+            <i class="material-icons delete" matTooltip="Deletar endereço">delete</i>
+          </a>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+</div>
