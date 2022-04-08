@@ -25,6 +25,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 //Componentes do projeto
 import { NavComponent } from './components/nav/nav.component';
@@ -35,6 +36,7 @@ import { ClienteListComponent } from './components/cliente/cliente-list/cliente-
 import { ClienteUpdateComponent } from './components/cliente/cliente-update/cliente-update.component';
 import { EnderecoCreateComponent } from './components/endereco/endereco-create/endereco-create.component';
 import { NgxMaskModule } from 'ngx-mask';
+import { EnderecoListComponent } from './components/endereco/endereco-list/endereco-list.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,7 @@ import { NgxMaskModule } from 'ngx-mask';
     ClienteListComponent,
     ClienteUpdateComponent,
     EnderecoCreateComponent,
+    EnderecoListComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,6 +74,7 @@ import { NgxMaskModule } from 'ngx-mask';
     MatIconModule,
     MatListModule,
     MatCardModule,
+    MatTooltipModule,
     NgxMaskModule.forRoot(),
   ],
   providers: [],

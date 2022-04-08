@@ -1,3 +1,4 @@
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,21 +8,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cliente-create.component.scss'],
 })
 export class ClienteCreateComponent implements OnInit {
-  seletorSexo = '';
-  nome: any;
-  dataNascimento: any;
-  cep: any;
-  sexoM: any;
+  seletorSexoModel: any;
+  nomeModel: any;
+  dataNascimentoModel: any;
+  cepModel: any;
 
-  sexoF: FormControl = new FormControl(null);
+  seletorSexo: FormControl = new FormControl();
+  nome: FormControl = new FormControl();
+  dataNascimento: FormControl = new FormControl();
 
   constructor() {}
 
   ngOnInit(): void {}
 
   gravar() {
-    console.log(this.nome);
-    console.log(this.cep);
-    console.log(this.seletorSexo);
+    console.log(this.nomeModel);
+    console.log(this.seletorSexoModel);
+    console.log(this.nome.valid);
+    console.log(this.dataNascimento.valid);
+
+  }
+
+  validaCampos(): boolean {
+    let sexoPrenchido;
+    if (this.seletorSexoModel === undefined) {
+      sexoPrenchido = false;
+    } else {
+      sexoPrenchido = true;
+    }
+    return this.nome.valid && this.dataNascimento.valid && sexoPrenchido;
   }
 }

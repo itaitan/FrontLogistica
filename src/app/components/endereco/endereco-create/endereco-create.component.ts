@@ -24,7 +24,14 @@ export class EnderecoCreateComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  gravar() {}
+  gravar() {
+    console.log(this.cep.value)
+    console.log(this.logradouro.value)
+    console.log(this.bairro.value)
+    console.log(this.numero.value)
+    console.log(this.complemento.value)
+    console.log(this.uf.value)
+  }
 
   buscaAPI() {
     const endpoint = 'https://viacep.com.br/ws/' + this.cep.value + '/json/';
@@ -38,5 +45,10 @@ export class EnderecoCreateComponent implements OnInit {
         this.bairroModel = data.bairro;
       })
       .catch(() => console.log('Error!'));
+  }
+
+  validaCampos(): boolean {
+
+    return this.cep.valid && this.logradouro.valid && this.numero.valid && this.uf.valid;
   }
 }
