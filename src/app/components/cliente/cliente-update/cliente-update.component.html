@@ -3,9 +3,19 @@
     .
     <h1 class="fullWidth">Modificar Cliente</h1>
 
-    <mat-radio-group class="section" aria-label="Select an option">
-      <mat-radio-button color="primary" value="M">Masculino</mat-radio-button>
-      <mat-radio-button color="primary" value="F">Feminino</mat-radio-button>
+    <mat-radio-group
+      class="section"
+      name="seletorSexo"
+      [(ngModel)]="seletorSexoModel"
+      aria-label="Select an option"
+
+    >
+      <mat-radio-button color="primary" value="Masculino"
+        >Masculino</mat-radio-button
+      >
+      <mat-radio-button color="primary" value="Feminino"
+        >Feminino</mat-radio-button
+      >
     </mat-radio-group>
 
     <mat-form-field class="fullWidth" appearance="legacy">
@@ -13,6 +23,8 @@
       <input
         name="nome"
         required
+        [(ngModel)]="nomeModel"
+        [formControl]="nome"
         matInput
         placeholder="Ex... João"
         maxlength="50"
@@ -23,23 +35,32 @@
     <mat-form-field class="fullWidth" appearance="legacy">
       <mat-label>Data de nascimento</mat-label>
       <input
-        name="cpf"
+        name="dataNascimento"
+        [(ngModel)]="dataNascimentoModel"
+        [formControl]="dataNascimento"
         required
         matInput
         placeholder="Ex... 01/01/2022"
-        mask="000.000.000-00"
+        mask="00/00/0000"
       />
-      <mat-icon matSuffix>pin</mat-icon>
+      <mat-icon matSuffix>date_range</mat-icon>
     </mat-form-field>
 
-    <button class="fullWidth mat-elevation-z8" mat-flat-button color="primary">
+    <button
+      [disabled]="!validaCampos()"
+      (click)="gravar()"
+      class="fullWidth mat-elevation-z8"
+      mat-flat-button
+      color="primary"
+    >
       Cadastrar
     </button>
     <button
-      routerLink="../"
+      routerLink="../../"
       class="fullWidth mat-elevation-z8"
       mat-stroked-button
       color="warn"
+
     >
       Cancelar
     </button>
