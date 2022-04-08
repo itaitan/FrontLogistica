@@ -37,6 +37,7 @@ import { ClienteUpdateComponent } from './components/cliente/cliente-update/clie
 import { EnderecoCreateComponent } from './components/endereco/endereco-create/endereco-create.component';
 import { NgxMaskModule } from 'ngx-mask';
 import { EnderecoListComponent } from './components/endereco/endereco-list/endereco-list.component';
+import { ClienteDeleteComponent } from './components/cliente/cliente-delete/cliente-delete.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { EnderecoListComponent } from './components/endereco/endereco-list/ender
     ClienteUpdateComponent,
     EnderecoCreateComponent,
     EnderecoListComponent,
+    ClienteDeleteComponent,
   ],
   imports: [
     BrowserModule,
