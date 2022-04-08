@@ -38,6 +38,7 @@ import { EnderecoCreateComponent } from './components/endereco/endereco-create/e
 import { NgxMaskModule } from 'ngx-mask';
 import { EnderecoListComponent } from './components/endereco/endereco-list/endereco-list.component';
 import { ClienteDeleteComponent } from './components/cliente/cliente-delete/cliente-delete.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,11 @@ import { ClienteDeleteComponent } from './components/cliente/cliente-delete/clie
     MatCardModule,
     MatTooltipModule,
     NgxMaskModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 4000,
+      closeButton: true,
+      progressBar: true,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

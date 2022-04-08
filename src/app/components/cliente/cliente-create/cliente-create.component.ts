@@ -1,6 +1,10 @@
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Cliente } from 'src/app/models/clientes';
+import { ClienteService } from 'src/app/services/cliente.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cliente-create',
@@ -8,6 +12,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cliente-create.component.scss'],
 })
 export class ClienteCreateComponent implements OnInit {
+  cliente: Cliente = {
+    id: '',
+    nome: '',
+    dataNascimento: '',
+  };
+
   seletorSexoModel: any;
   nomeModel: any;
   dataNascimentoModel: any;
@@ -17,7 +27,11 @@ export class ClienteCreateComponent implements OnInit {
   nome: FormControl = new FormControl();
   dataNascimento: FormControl = new FormControl();
 
-  constructor() {}
+  constructor(
+    private service: ClienteService,
+    private tost: ToastrService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
 
@@ -26,7 +40,25 @@ export class ClienteCreateComponent implements OnInit {
     console.log(this.seletorSexoModel);
     console.log(this.nome.valid);
     console.log(this.dataNascimento.valid);
+    this.tost.success('Cliente Cadastrado com Sucesso.', 'Cadastro');
+  }
 
+  create(): void {
+    this.service.create(this.cliente).subscribe(
+      (resposta) => {
+        this.tost.success('Cliente Cadastrado com Sucesso.', 'Cadastro');
+        this.router.navigate(['clientes']);
+      },
+      (ex) => {
+        if (ex.error.errors) {
+          ex.error.errors.forEach((element) => {
+            this.tost.error(element.message);
+          });
+        } else {
+          this.tost.error(ex.error.message);
+        }
+      }
+    );
   }
 
   validaCampos(): boolean {
