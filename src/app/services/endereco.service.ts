@@ -12,11 +12,11 @@ export class EnderecoService {
   constructor(private http: HttpClient) { }
 
   findbyID(id: any): Observable<Endereco> {
-    return this.http.get<Endereco>(`${API_CONFIG.baseUrl}/enderecos/${id}`);
+    return this.http.get<Endereco>(`${API_CONFIG.baseUrl}/Endereco/${id}`);
   }
 
   findAll(): Observable<Endereco[]> {
-    return this.http.get<Endereco[]>(`${API_CONFIG.baseUrl}/enderecos`);
+    return this.http.get<Endereco[]>(`${API_CONFIG.baseUrl}/Endereco`);
   }
 
   create(endereco: Endereco): Observable<Endereco> {
@@ -25,12 +25,12 @@ export class EnderecoService {
 
   update(endereco: Endereco): Observable<Endereco> {
     return this.http.put<Endereco>(
-      `${API_CONFIG.baseUrl}/enderecos/${endereco.id}`,
+      `${API_CONFIG.baseUrl}/Endereco${endereco.id}`,
       endereco
     );
   }
 
   delete(id: any): Observable<Endereco> {
-    return this.http.delete<Endereco>(`${API_CONFIG.baseUrl}/enderecos/${id}`);
+    return this.http.delete<Endereco>(`${API_CONFIG.baseUrl}/Endereco/${id}`);
   }
 }

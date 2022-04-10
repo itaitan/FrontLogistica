@@ -1,3 +1,4 @@
+import { Endereco } from './../../../models/endereco';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -16,7 +17,7 @@ export class ClienteCreateComponent implements OnInit {
   cliente: Cliente = {
     nome: '',
     dataNascimento: '',
-    sexo: ''
+    sexo: '',
   };
 
   nome: FormControl = new FormControl();

@@ -1,3 +1,4 @@
+import { Endereco } from './../../../models/endereco';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ClienteService } from 'src/app/services/cliente.service';
@@ -15,7 +16,7 @@ export class ClienteDeleteComponent implements OnInit {
     id: '',
     nome: '',
     dataNascimento: '',
-    sexo: ''
+    sexo: '',
   };
 
   constructor(

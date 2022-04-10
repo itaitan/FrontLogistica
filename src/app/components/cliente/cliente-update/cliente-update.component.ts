@@ -1,3 +1,4 @@
+import { Endereco } from './../../../models/endereco';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { FormControl } from '@angular/forms';
@@ -14,13 +15,15 @@ export class ClienteUpdateComponent implements OnInit {
   cliente: Cliente = {
     nome: '',
     dataNascimento: '',
-    sexo: ''
+    sexo: '',
   };
+
+
 
   seletorSexoModel: any;
   nomeModel: any;
   dataNascimentoModel: any;
-  cepModel: any;
+
 
   seletorSexo: FormControl = new FormControl();
   nome: FormControl = new FormControl();
@@ -63,12 +66,6 @@ export class ClienteUpdateComponent implements OnInit {
   }
 
   validaCampos(): boolean {
-    let sexoPrenchido;
-    if (this.seletorSexoModel === undefined) {
-      sexoPrenchido = false;
-    } else {
-      sexoPrenchido = true;
-    }
-    return this.nome.valid && this.dataNascimento.valid && sexoPrenchido;
+    return this.nome.valid && this.dataNascimento.valid
   }
 }
