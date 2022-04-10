@@ -25,7 +25,7 @@ export class EnderecoService {
 
   update(endereco: Endereco): Observable<Endereco> {
     return this.http.put<Endereco>(
-      `${API_CONFIG.baseUrl}/Endereco${endereco.id}`,
+      `${API_CONFIG.baseUrl}/Endereco/${endereco.id}`,
       endereco
     );
   }

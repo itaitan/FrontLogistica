@@ -40,6 +40,7 @@ import { EnderecoListComponent } from './components/endereco/endereco-list/ender
 import { ClienteDeleteComponent } from './components/cliente/cliente-delete/cliente-delete.component';
 import { ToastrModule } from 'ngx-toastr';
 import { EnderecoDeleteComponent } from './components/endereco/endereco-delete/endereco-delete.component';
+import { EnderecoUpdateComponent } from './components/endereco/endereco-update/endereco-update.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { EnderecoDeleteComponent } from './components/endereco/endereco-delete/e
     EnderecoListComponent,
     ClienteDeleteComponent,
     EnderecoDeleteComponent,
+    EnderecoUpdateComponent,
   ],
   imports: [
     BrowserModule,

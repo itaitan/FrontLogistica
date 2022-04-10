@@ -1,3 +1,4 @@
+import { EnderecoUpdateComponent } from './components/endereco/endereco-update/endereco-update.component';
 import { EnderecoListComponent } from './components/endereco/endereco-list/endereco-list.component';
 import { EnderecoCreateComponent } from './components/endereco/endereco-create/endereco-create.component';
 import { ClienteUpdateComponent } from './components/cliente/cliente-update/cliente-update.component';
@@ -20,6 +21,7 @@ const routes: Routes = [{
     { path: 'clientes/enderecos/create/:id', component: EnderecoCreateComponent },
     { path: 'clientes/enderecos/view/:id', component: EnderecoListComponent },
     { path: 'clientes/enderecos/view/:id/delete/:idEnd', component: EnderecoDeleteComponent },
+    { path: 'clientes/enderecos/view/:id/update/:idEnd', component: EnderecoUpdateComponent },
 
   ]
 },

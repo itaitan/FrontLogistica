@@ -1,0 +1,51 @@
+.container {
+  width: 35rem;
+  margin: auto;
+  padding: 1rem 1rem 3rem 1rem;
+
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+}
+
+.section {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.tamanho {
+  width: 70%;
+}
+
+.comprimentoNumero {
+  margin-right: 10px;
+  width: 40%;
+}
+
+.comprimentoComplemento {
+  margin-right: 10px;
+  width: 40%;
+}
+
+.comprimentoUF {
+  width: 16%;
+}
+
+.buscaAPi {
+  margin-left: 10px;
+  width: 28%;
+}
+.buttonDeAcao {
+  margin-top: 0.5rem;
+}
+
+
+mat-icon {
+  opacity: 0.8;
+}
