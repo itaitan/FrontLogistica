@@ -8,6 +8,7 @@ import { ClienteListComponent } from './components/cliente/cliente-list/cliente-
 import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 import { ClienteDeleteComponent } from './components/cliente/cliente-delete/cliente-delete.component';
+import { EnderecoDeleteComponent } from './components/endereco/endereco-delete/endereco-delete.component';
 
 const routes: Routes = [{
   path: '', component: NavComponent, children: [
@@ -18,6 +19,7 @@ const routes: Routes = [{
     { path: 'clientes/delete/:id', component: ClienteDeleteComponent },
     { path: 'clientes/enderecos/create/:id', component: EnderecoCreateComponent },
     { path: 'clientes/enderecos/view/:id', component: EnderecoListComponent },
+    { path: 'clientes/enderecos/view/:id/delete/:idEnd', component: EnderecoDeleteComponent },
 
   ]
 },

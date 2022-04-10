@@ -10,7 +10,6 @@ import { Cliente } from 'src/app/models/clientes';
   styleUrls: ['./cliente-list.component.scss'],
 })
 export class ClienteListComponent implements OnInit {
-
   ELEMENT_DATA: Cliente[] = [];
 
   displayedColumns: string[] = [
@@ -22,12 +21,10 @@ export class ClienteListComponent implements OnInit {
   ];
   dataSource = new MatTableDataSource<Cliente>(this.ELEMENT_DATA);
 
-  constructor(
-    private service: ClienteService
-  ) {}
+  constructor(private service: ClienteService) {}
 
   ngOnInit(): void {
-    this.findAll()
+    this.findAll();
   }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -36,13 +33,11 @@ export class ClienteListComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  findAll(){
-    this.service.findAll().subscribe(resposta => {
+  findAll() {
+    this.service.findAll().subscribe((resposta) => {
       this.ELEMENT_DATA = resposta;
       this.dataSource = new MatTableDataSource<Cliente>(resposta);
       this.dataSource.paginator = this.paginator;
-    })
+    });
   }
 }
-
-

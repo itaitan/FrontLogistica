@@ -18,12 +18,9 @@ export class ClienteUpdateComponent implements OnInit {
     sexo: '',
   };
 
-
-
   seletorSexoModel: any;
   nomeModel: any;
   dataNascimentoModel: any;
-
 
   seletorSexo: FormControl = new FormControl();
   nome: FormControl = new FormControl();
@@ -66,6 +63,6 @@ export class ClienteUpdateComponent implements OnInit {
   }
 
   validaCampos(): boolean {
-    return this.nome.valid && this.dataNascimento.valid
+    return this.nome.valid && this.dataNascimento.valid;
   }
 }

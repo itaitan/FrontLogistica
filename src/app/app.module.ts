@@ -39,6 +39,7 @@ import { NgxMaskModule } from 'ngx-mask';
 import { EnderecoListComponent } from './components/endereco/endereco-list/endereco-list.component';
 import { ClienteDeleteComponent } from './components/cliente/cliente-delete/cliente-delete.component';
 import { ToastrModule } from 'ngx-toastr';
+import { EnderecoDeleteComponent } from './components/endereco/endereco-delete/endereco-delete.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { ToastrModule } from 'ngx-toastr';
     EnderecoCreateComponent,
     EnderecoListComponent,
     ClienteDeleteComponent,
+    EnderecoDeleteComponent,
   ],
   imports: [
     BrowserModule,

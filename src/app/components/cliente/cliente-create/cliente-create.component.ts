@@ -13,7 +13,6 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./cliente-create.component.scss'],
 })
 export class ClienteCreateComponent implements OnInit {
-
   cliente: Cliente = {
     nome: '',
     dataNascimento: '',
@@ -32,10 +31,8 @@ export class ClienteCreateComponent implements OnInit {
 
   ngOnInit(): void {}
 
-
-
   create(): void {
-    console.log(this.cliente)
+    console.log(this.cliente);
     this.service.create(this.cliente).subscribe(
       (resposta) => {
         this.tost.success('Cliente Cadastrado com Sucesso.', 'Cadastro');
@@ -52,8 +49,6 @@ export class ClienteCreateComponent implements OnInit {
       }
     );
   }
-
-
 
   validaCampos(): boolean {
     let sexoPrenchido;

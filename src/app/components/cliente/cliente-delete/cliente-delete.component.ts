@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-cliente-delete',
   templateUrl: './cliente-delete.component.html',
-  styleUrls: ['./cliente-delete.component.scss']
+  styleUrls: ['./cliente-delete.component.scss'],
 })
 export class ClienteDeleteComponent implements OnInit {
   cliente: Cliente = {
@@ -30,7 +30,6 @@ export class ClienteDeleteComponent implements OnInit {
     this.cliente.id = this.route.snapshot.paramMap.get('id');
     this.findById();
   }
-
 
   findById(): void {
     this.service.findById(this.cliente.id).subscribe((resposta) => {
@@ -55,5 +54,4 @@ export class ClienteDeleteComponent implements OnInit {
       }
     );
   }
-
 }
