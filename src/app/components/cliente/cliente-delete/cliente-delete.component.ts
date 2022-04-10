@@ -18,7 +18,6 @@ export class ClienteDeleteComponent implements OnInit {
     sexo: ''
   };
 
-
   constructor(
     private service: ClienteService,
     private tost: ToastrService,

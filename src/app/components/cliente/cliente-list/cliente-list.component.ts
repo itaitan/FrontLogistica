@@ -1,6 +1,8 @@
+import { ClienteService } from 'src/app/services/cliente.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Cliente } from 'src/app/models/clientes';
 
 @Component({
   selector: 'app-cliente-list',
@@ -8,6 +10,9 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./cliente-list.component.scss'],
 })
 export class ClienteListComponent implements OnInit {
+
+  ELEMENT_DATA: Cliente[] = [];
+
   displayedColumns: string[] = [
     'id',
     'nome',
@@ -15,32 +20,29 @@ export class ClienteListComponent implements OnInit {
     'sexo',
     'acoes',
   ];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  dataSource = new MatTableDataSource<Cliente>(this.ELEMENT_DATA);
 
-  constructor() {}
+  constructor(
+    private service: ClienteService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.findAll()
+  }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
+
+  findAll(){
+    this.service.findAll().subscribe(resposta => {
+      this.ELEMENT_DATA = resposta;
+      this.dataSource = new MatTableDataSource<Cliente>(resposta);
+      this.dataSource.paginator = this.paginator;
+    })
+  }
 }
 
-export interface PeriodicElement {
-  nome: string;
-  id: number;
-  dataNascimento: string;
-  sexo: string;
-}
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  { id: 1, nome: 'Ita', dataNascimento: '06/08/1995', sexo: 'M' },
-  { id: 2, nome: 'Roger', dataNascimento: '06/08/1995', sexo: 'M' },
-  { id: 3, nome: 'Bruno', dataNascimento: '06/08/1995', sexo: 'M' },
-  { id: 4, nome: 'Matheus', dataNascimento: '06/08/1995', sexo: 'M' },
-  { id: 5, nome: 'Renan', dataNascimento: '06/08/1995', sexo: 'M' },
-  { id: 6, nome: 'Italo', dataNascimento: '06/08/1995', sexo: 'M' },
-  { id: 7, nome: 'Lud', dataNascimento: '06/08/1995', sexo: 'F' },
-];

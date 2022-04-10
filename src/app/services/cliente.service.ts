@@ -11,25 +11,25 @@ export class ClienteService {
   constructor(private http: HttpClient) {}
 
   findById(id: any): Observable<Cliente> {
-    return this.http.get<Cliente>(`${API_CONFIG.baseUrl}/clientes/${id}`);
+    return this.http.get<Cliente>(`${API_CONFIG.baseUrl}/Cliente/${id}`);
   }
 
-  findAll(): Observable<Cliente> {
-    return this.http.get<Cliente>(`${API_CONFIG.baseUrl}/clientes`);
+  findAll(): Observable<Cliente[]> {
+    return this.http.get<Cliente[]>(`${API_CONFIG.baseUrl}/Cliente`);
   }
 
   create(cliente: Cliente): Observable<Cliente> {
-    return this.http.post<Cliente>(`${API_CONFIG.baseUrl}/clientes`, cliente);
+    return this.http.post<Cliente>(`${API_CONFIG.baseUrl}/Cliente`, cliente);
   }
 
   update(cliente: Cliente): Observable<Cliente> {
     return this.http.put<Cliente>(
-      `${API_CONFIG.baseUrl}/clientes/${cliente.id}`,
+      `${API_CONFIG.baseUrl}/Cliente/${cliente.id}`,
       cliente
     );
   }
 
   delete(id: any): Observable<Cliente> {
-    return this.http.delete<Cliente>(`${API_CONFIG.baseUrl}/clientes/${id}`);
+    return this.http.delete<Cliente>(`${API_CONFIG.baseUrl}/Cliente/${id}`);
   }
 }

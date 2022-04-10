@@ -6,7 +6,7 @@
     <mat-radio-group
       class="section"
       name="seletorSexo"
-      [(ngModel)]="seletorSexoModel"
+      [(ngModel)]="cliente.sexo"
       aria-label="Select an option"
     >
       <mat-radio-button color="primary" value="Masculino"
@@ -22,7 +22,7 @@
       <input
         name="nome"
         required
-        [(ngModel)]="nomeModel"
+        [(ngModel)]="cliente.nome"
         [formControl]="nome"
         matInput
         placeholder="Ex... João"
@@ -35,7 +35,7 @@
       <mat-label>Data de nascimento</mat-label>
       <input
         name="dataNascimento"
-        [(ngModel)]="dataNascimentoModel"
+        [(ngModel)]="cliente.dataNascimento"
         [formControl]="dataNascimento"
         required
         matInput
@@ -47,7 +47,7 @@
 
     <button
       [disabled]="!validaCampos()"
-      (click)="gravar()"
+      (click)="update()"
       class="fullWidth mat-elevation-z8"
       mat-flat-button
       color="primary"

@@ -1,5 +1,9 @@
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Endereco } from './../../../models/endereco';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { EnderecoService } from 'src/app/services/endereco.service';
 
 @Component({
   selector: 'app-endereco-create',
@@ -7,10 +11,23 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./endereco-create.component.scss'],
 })
 export class EnderecoCreateComponent implements OnInit {
+
+  endereco: Endereco = {
+    id_cliente: '',
+    cep: '',
+    logradouro: '',
+    bairro: '',
+    numero: 0,
+    complemento: '',
+    uf: '',
+  }
+
   //NgModel
-  logradouroModel: any;
-  bairroModel: any;
-  ufModel: any;
+  logradouroModel: string;
+  bairroModel: string;
+  ufModel: string;
+  numeroModel:number;
+  cepModel:string;
 
   //FormsControl
   cep: FormControl = new FormControl(null, Validators.maxLength(8));
@@ -20,17 +37,14 @@ export class EnderecoCreateComponent implements OnInit {
   complemento: FormControl = new FormControl();
   uf: FormControl = new FormControl();
 
-  constructor() {}
+  constructor(private service: EnderecoService,
+    private tost: ToastrService,
+    private router: Router,
+    private route: ActivatedRoute) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.endereco.id_cliente = Number(this.route.snapshot.paramMap.get('id'));
 
-  gravar() {
-    console.log(this.cep.value)
-    console.log(this.logradouro.value)
-    console.log(this.bairro.value)
-    console.log(this.numero.value)
-    console.log(this.complemento.value)
-    console.log(this.uf.value)
   }
 
   buscaAPI() {
@@ -45,6 +59,36 @@ export class EnderecoCreateComponent implements OnInit {
         this.bairroModel = data.bairro;
       })
       .catch(() => console.log('Error!'));
+  }
+
+  SetObject(){
+    this.endereco.logradouro = this.logradouroModel
+    this.endereco.bairro = this.bairroModel
+    this.endereco.uf = this.ufModel
+    this.endereco.numero = Number(this.numeroModel)
+    this.endereco.cep = this.cepModel
+
+  }
+
+  create(): void {
+    this.SetObject();
+    console.log(this.endereco)
+
+    this.service.create(this.endereco).subscribe(
+      (resposta) => {
+        this.tost.success('Endereco cadastrado com sucesso.', 'Cadastro');
+        this.router.navigate(['clientes']);
+      },
+      (ex) => {
+        if (ex.error.errors) {
+          ex.error.errors.forEach((element) => {
+            this.tost.error(element.message);
+          });
+        } else {
+          this.tost.error(ex.error.message);
+        }
+      }
+    );
   }
 
   validaCampos(): boolean {

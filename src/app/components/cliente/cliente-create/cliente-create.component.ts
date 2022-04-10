@@ -12,21 +12,16 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./cliente-create.component.scss'],
 })
 export class ClienteCreateComponent implements OnInit {
+
   cliente: Cliente = {
-    id: '',
     nome: '',
     dataNascimento: '',
     sexo: ''
   };
 
-  seletorSexoModel: any;
-  nomeModel: any;
-  dataNascimentoModel: any;
-  cepModel: any;
-
-  seletorSexo: FormControl = new FormControl();
   nome: FormControl = new FormControl();
   dataNascimento: FormControl = new FormControl();
+  sexo: FormControl = new FormControl();
 
   constructor(
     private service: ClienteService,
@@ -36,15 +31,10 @@ export class ClienteCreateComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  gravar() {
-    console.log(this.nomeModel);
-    console.log(this.seletorSexoModel);
-    console.log(this.nome.valid);
-    console.log(this.dataNascimento.valid);
-    this.tost.success('Cliente Cadastrado com Sucesso.', 'Cadastro');
-  }
+
 
   create(): void {
+    console.log(this.cliente)
     this.service.create(this.cliente).subscribe(
       (resposta) => {
         this.tost.success('Cliente Cadastrado com Sucesso.', 'Cadastro');
@@ -66,7 +56,7 @@ export class ClienteCreateComponent implements OnInit {
 
   validaCampos(): boolean {
     let sexoPrenchido;
-    if (this.seletorSexoModel === undefined) {
+    if (this.cliente.sexo === undefined) {
       sexoPrenchido = false;
     } else {
       sexoPrenchido = true;

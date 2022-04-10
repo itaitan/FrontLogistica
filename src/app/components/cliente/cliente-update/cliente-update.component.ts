@@ -12,7 +12,6 @@ import { ClienteService } from 'src/app/services/cliente.service';
 })
 export class ClienteUpdateComponent implements OnInit {
   cliente: Cliente = {
-    id: '',
     nome: '',
     dataNascimento: '',
     sexo: ''
@@ -37,13 +36,6 @@ export class ClienteUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.cliente.id = this.route.snapshot.paramMap.get('id');
     this.findById();
-  }
-
-  gravar() {
-    console.log(this.nomeModel);
-    console.log(this.seletorSexoModel);
-    console.log(this.nome.valid);
-    console.log(this.dataNascimento.valid);
   }
 
   findById(): void {

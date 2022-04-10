@@ -15,12 +15,12 @@ export class EnderecoService {
     return this.http.get<Endereco>(`${API_CONFIG.baseUrl}/enderecos/${id}`);
   }
 
-  findAll(): Observable<Endereco> {
-    return this.http.get<Endereco>(`${API_CONFIG.baseUrl}/enderecos`);
+  findAll(): Observable<Endereco[]> {
+    return this.http.get<Endereco[]>(`${API_CONFIG.baseUrl}/enderecos`);
   }
 
   create(endereco: Endereco): Observable<Endereco> {
-    return this.http.post<Endereco>(`${API_CONFIG.baseUrl}/enderecos`, endereco);
+    return this.http.post<Endereco>(`${API_CONFIG.baseUrl}/Endereco`, endereco);
   }
 
   update(endereco: Endereco): Observable<Endereco> {
