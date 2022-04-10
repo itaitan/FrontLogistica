@@ -1,7 +1,13 @@
 <div class="container">
   <h1>Listando Clientes</h1>
 
-  <button routerLink="create" id="createCliente" class="mat-elevation-z8" mat-stroked-button color="primary">
+  <button
+    routerLink="create"
+    id="createCliente"
+    class="mat-elevation-z8"
+    mat-stroked-button
+    color="primary"
+  >
     Novo cliente
   </button>
   <div class="mat-elevation-z8">
@@ -32,17 +38,24 @@
           <a routerLink="update/{{ element.id }}">
             <i class="material-icons edit" matTooltip="Editar Cliente">edit</i>
           </a>
-          <a routerLink="delete/{{element.id}}">
-            <i class="material-icons delete" matTooltip="Deletar Cliente">delete</i>
+          <a routerLink="delete/{{ element.id }}">
+            <i class="material-icons delete" matTooltip="Deletar Cliente"
+              >delete</i
+            >
           </a>
           <a routerLink="enderecos/create/{{ element.id }}">
-            <i class="material-icons home" matTooltip="Adicionar Endereço">home</i>
+            <i class="material-icons home" matTooltip="Adicionar Endereço"
+              >home</i
+            >
           </a>
 
           <a routerLink="enderecos/view/{{ element.id }}">
-            <i class="material-icons visibility " matTooltip="Visualizar Endereço">visibility</i>
+            <i
+              class="material-icons visibility"
+              matTooltip="Visualizar Endereço"
+              >visibility</i
+            >
           </a>
-
         </td>
       </ng-container>
 
@@ -50,7 +63,11 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
 
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
     </mat-paginator>
   </div>
 </div>

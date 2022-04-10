@@ -11,7 +11,6 @@ import { EnderecoService } from 'src/app/services/endereco.service';
   styleUrls: ['./endereco-create.component.scss'],
 })
 export class EnderecoCreateComponent implements OnInit {
-
   endereco: Endereco = {
     id_cliente: '',
     cep: '',
@@ -20,14 +19,14 @@ export class EnderecoCreateComponent implements OnInit {
     numero: 0,
     complemento: '',
     uf: '',
-  }
+  };
 
   //NgModel
   logradouroModel: string;
   bairroModel: string;
   ufModel: string;
-  numeroModel:number;
-  cepModel:string;
+  numeroModel: number;
+  cepModel: string;
 
   //FormsControl
   cep: FormControl = new FormControl(null, Validators.maxLength(8));
@@ -37,14 +36,15 @@ export class EnderecoCreateComponent implements OnInit {
   complemento: FormControl = new FormControl();
   uf: FormControl = new FormControl();
 
-  constructor(private service: EnderecoService,
+  constructor(
+    private service: EnderecoService,
     private tost: ToastrService,
     private router: Router,
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.endereco.id_cliente = Number(this.route.snapshot.paramMap.get('id'));
-
   }
 
   buscaAPI() {
@@ -53,7 +53,6 @@ export class EnderecoCreateComponent implements OnInit {
     fetch(endpoint)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         this.logradouroModel = data.logradouro;
         this.ufModel = data.uf;
         this.bairroModel = data.bairro;
@@ -61,18 +60,16 @@ export class EnderecoCreateComponent implements OnInit {
       .catch(() => console.log('Error!'));
   }
 
-  SetObject(){
-    this.endereco.logradouro = this.logradouroModel
-    this.endereco.bairro = this.bairroModel
-    this.endereco.uf = this.ufModel
-    this.endereco.numero = Number(this.numeroModel)
-    this.endereco.cep = this.cepModel
-
+  SetObject() {
+    this.endereco.logradouro = this.logradouroModel;
+    this.endereco.bairro = this.bairroModel;
+    this.endereco.uf = this.ufModel;
+    this.endereco.numero = Number(this.numeroModel);
+    this.endereco.cep = this.cepModel;
   }
 
   create(): void {
     this.SetObject();
-    console.log(this.endereco)
 
     this.service.create(this.endereco).subscribe(
       (resposta) => {
@@ -92,7 +89,11 @@ export class EnderecoCreateComponent implements OnInit {
   }
 
   validaCampos(): boolean {
-
-    return this.cep.valid && this.logradouro.valid && this.numero.valid && this.uf.valid;
+    return (
+      this.cep.valid &&
+      this.logradouro.valid &&
+      this.numero.valid &&
+      this.uf.valid
+    );
   }
 }

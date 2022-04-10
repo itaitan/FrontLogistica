@@ -13,9 +13,9 @@ import { ClienteService } from 'src/app/services/cliente.service';
   styleUrls: ['./endereco-list.component.scss'],
 })
 export class EnderecoListComponent implements OnInit {
-  clienteid: Cliente={
-    id:''
-  }
+  clienteid: Cliente = {
+    id: '',
+  };
 
   ELEMENT_DATA: Cliente[] = [];
 
@@ -40,8 +40,6 @@ export class EnderecoListComponent implements OnInit {
   ngOnInit(): void {
     this.clienteid.id = this.route.snapshot.paramMap.get('id');
     this.findById();
-
-
   }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -52,14 +50,10 @@ export class EnderecoListComponent implements OnInit {
 
   findById(): void {
     this.serviceCliente.findById(this.clienteid.id).subscribe((resposta) => {
-
       this.ELEMENT_DATA = [resposta];
-      this.ELEMENT_DATA.map(endereco => endereco.endereco)
+      this.ELEMENT_DATA.map((endereco) => endereco.endereco);
       this.dataSource = new MatTableDataSource<Cliente>(resposta.endereco);
       this.dataSource.paginator = this.paginator;
     });
-
   }
-
-
 }

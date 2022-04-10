@@ -8,10 +8,9 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-endereco-update',
   templateUrl: './endereco-update.component.html',
-  styleUrls: ['./endereco-update.component.scss']
+  styleUrls: ['./endereco-update.component.scss'],
 })
 export class EnderecoUpdateComponent implements OnInit {
-
   endereco: Endereco = {
     id_cliente: '',
     cep: '',
@@ -20,14 +19,14 @@ export class EnderecoUpdateComponent implements OnInit {
     numero: 0,
     complemento: '',
     uf: '',
-  }
+  };
 
   //NgModel
   logradouroModel: string;
   bairroModel: string;
   ufModel: string;
-  numeroModel:number;
-  cepModel:string;
+  numeroModel: number;
+  cepModel: string;
 
   //FormsControl
   cep: FormControl = new FormControl(null, Validators.maxLength(8));
@@ -37,15 +36,17 @@ export class EnderecoUpdateComponent implements OnInit {
   complemento: FormControl = new FormControl();
   uf: FormControl = new FormControl();
 
-  constructor(private service: EnderecoService,
+  constructor(
+    private service: EnderecoService,
     private tost: ToastrService,
     private router: Router,
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.endereco.id = Number(this.route.snapshot.paramMap.get('idEnd'));
     this.endereco.id_cliente = Number(this.route.snapshot.paramMap.get('id'));
-    console.log(this.endereco.id_cliente, this.endereco.id )
+
     this.findById();
   }
 
@@ -69,13 +70,12 @@ export class EnderecoUpdateComponent implements OnInit {
       .catch(() => console.log('Error!'));
   }
 
-  SetObject(){
-    this.endereco.numero = Number(this.endereco.numero)
-
+  SetObject() {
+    this.endereco.numero = Number(this.endereco.numero);
   }
 
   update(): void {
-    this.SetObject()
+    this.SetObject();
     this.service.update(this.endereco).subscribe(
       (resposta) => {
         this.tost.success('Endereço Atualizado com Sucesso.', 'Atualizar');
@@ -94,7 +94,11 @@ export class EnderecoUpdateComponent implements OnInit {
   }
 
   validaCampos(): boolean {
-
-    return this.cep.valid && this.logradouro.valid && this.numero.valid && this.uf.valid;
+    return (
+      this.cep.valid &&
+      this.logradouro.valid &&
+      this.numero.valid &&
+      this.uf.valid
+    );
   }
 }

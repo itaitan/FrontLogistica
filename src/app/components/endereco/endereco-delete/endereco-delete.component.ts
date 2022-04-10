@@ -8,10 +8,9 @@ import { Endereco } from 'src/app/models/endereco';
 @Component({
   selector: 'app-endereco-delete',
   templateUrl: './endereco-delete.component.html',
-  styleUrls: ['./endereco-delete.component.scss']
+  styleUrls: ['./endereco-delete.component.scss'],
 })
 export class EnderecoDeleteComponent implements OnInit {
-
   endereco: Endereco = {
     id: '',
     id_cliente: '',
@@ -21,12 +20,14 @@ export class EnderecoDeleteComponent implements OnInit {
     numero: 0,
     complemento: '',
     uf: '',
-  }
+  };
 
-  constructor(private service: EnderecoService,
+  constructor(
+    private service: EnderecoService,
     private tost: ToastrService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.endereco.id = this.route.snapshot.paramMap.get('idEnd');
@@ -56,5 +57,4 @@ export class EnderecoDeleteComponent implements OnInit {
       }
     );
   }
-
 }
