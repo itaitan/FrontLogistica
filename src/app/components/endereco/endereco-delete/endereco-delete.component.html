@@ -1,1 +1,100 @@
-<p>endereco-delete works!</p>
+<div class="container mat-elevation-z8">
+  <form action="" class="form">
+    <h1 class="fullWidth">Deletar Endereço do Cliente</h1>
+
+    <div class="fullWidth">
+      <mat-form-field class="tamanho" appearance="legacy">
+        <mat-label>CEP</mat-label>
+        <input
+          name="cep"
+          [(ngModel)]="endereco.cep"
+          [disabled]="true"
+          mask="00000-000"
+          matInput
+          placeholder="Ex... 00000-000"
+        />
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+
+    </div>
+    <mat-form-field class="fullWidth" appearance="legacy">
+      <mat-label>Rua</mat-label>
+      <input
+        name="logradouro"
+        [(ngModel)]="endereco.logradouro"
+        [disabled]="true"
+        matInput
+        placeholder="Ex... Rua Maria Antonio"
+      />
+      <mat-icon matSuffix>home</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="fullWidth" appearance="legacy">
+      <mat-label>Bairro</mat-label>
+      <input
+        name="bairro"
+        [(ngModel)]="endereco.bairro"
+        [disabled]="true"
+        matInput
+        placeholder="Ex... Vila Antonio"
+      />
+      <mat-icon matSuffix>home</mat-icon>
+    </mat-form-field>
+
+    <div class="fullWidth">
+      <mat-form-field class="comprimentoNumero" appearance="legacy">
+        <mat-label>Numero</mat-label>
+        <input
+          name="numero"
+          [(ngModel)]="endereco.numero"
+          [disabled]="true"
+          matInput
+          placeholder="Ex... Vila Antonio"
+        />
+        <mat-icon matSuffix>home</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="comprimentoComplemento" appearance="legacy">
+        <mat-label>Complemento</mat-label>
+        <input
+          name="complemento"
+          [(ngModel)]="endereco.complemento"
+          [disabled]="true"
+          matInput
+          placeholder="Ex... Apartamento"
+        />
+        <mat-icon matSuffix>home</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="comprimentoUF" appearance="legacy">
+        <mat-label>UF</mat-label>
+        <input
+          name="uf"
+          [(ngModel)]="endereco.uf"
+          [disabled]="true"
+          matInput
+          placeholder="Ex... SP"
+        />
+        <mat-icon matSuffix>home</mat-icon>
+      </mat-form-field>
+    </div>
+    <button
+      id="bottonDeAcao"
+      (click)="delete()"
+      class="fullWidth mat-elevation-z8"
+      mat-flat-button
+      color="primary"
+    >
+      Deletar
+    </button>
+    <button
+      id="bottonDeAcao"
+      routerLink="../"
+      class="fullWidth mat-elevation-z8"
+      mat-stroked-button
+      color="warn"
+    >
+      Cancelar
+    </button>
+  </form>
+</div>
