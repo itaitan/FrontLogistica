@@ -35,6 +35,15 @@ export class ClienteListComponent implements OnInit {
 
   findAll() {
     this.service.findAll().subscribe((resposta) => {
+      let data = resposta.map(
+        (resposta) =>
+          (resposta.dataNascimento =
+            resposta.dataNascimento.substring(0, 2) +
+            '/' +
+            resposta.dataNascimento.substring(2, 4) +
+            '/' +
+            resposta.dataNascimento.substring(4, 8))
+      );
       this.ELEMENT_DATA = resposta;
       this.dataSource = new MatTableDataSource<Cliente>(resposta);
       this.dataSource.paginator = this.paginator;
